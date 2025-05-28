@@ -4,7 +4,7 @@ export default function HomePage() {
     return (
         <>
 
-        <div className="fixed top-0 left-0 h-full w-full bg-[url('images/background.jpg')] bg-repeat scroll-bg-x z-0"></div>
+        <div className="fixed top-0 left-0 h-full w-full bg-[url('/images/background.jpg')] bg-repeat scroll-bg-x z-0"></div>
 
         <div className="min-h-screen relative z-10">
             <main className="min-h-screen text-gray-900">
@@ -18,7 +18,7 @@ export default function HomePage() {
                             <a href="#contact" className="text-[#212a3e] hover:text-blue-600 font-medium">Contact Us</a>
                         </div>
                         <div className="text-blue-600">
-                            <img src="images/logo-short.jpg" alt="Sequitur Logo" className="h-12 w-auto" />
+                            <img src="public/images/logo-short.jpg" alt="Sequitur Logo" className="h-12 w-auto" />
                         </div>
                     </nav>
 
