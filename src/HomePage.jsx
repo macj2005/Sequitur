@@ -18,7 +18,7 @@ export default function HomePage() {
                             <a href="#contact" className="text-[#212a3e] hover:text-blue-600 font-medium">Contact Us</a>
                         </div>
                         <div className="text-blue-600">
-                            <img src="/public/images/logo-short.jpg" alt="Sequitur Logo" className="h-12 w-auto" />
+                            <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 w-auto" />
                         </div>
                     </nav>
 
