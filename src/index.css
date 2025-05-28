@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@keyframes scrollX {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 1920px 0;
+    }
+}
+
+.scroll-bg-x {
+    animation: scrollX 60s linear infinite;
+    background-size: auto;
+}
