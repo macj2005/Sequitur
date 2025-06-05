@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
     return (
@@ -26,9 +27,11 @@ export default function HomePage() {
                     <section id="home" className="flex flex-col items-center justify-center text-center px-4 py-40 bg-gradient-to-br from-[#1e57be] to-[#212A3E] text-white">
                         <h1 className="text-5xl md:text-6xl font-bold mb-4">Follow through with Sequitur</h1>
                         <p className="text-xl md:text-2xl mb-8 max-w-2xl">Bringing you an online presence for an affordable price.</p>
-                        <a href="#contact" className="bg-white text-[#212a3e] hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-md transtiion duration-300">
-                            Contact Us
-                        </a>
+                        <Link to="/contact">
+                            <button className="bg-white text-[#1e57be] hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-md transtiion duration-300 cursor-pointer">
+                                Contact Us
+                            </button>
+                        </Link>
                     </section>
 
                     {/* About Section */}
@@ -72,10 +75,10 @@ export default function HomePage() {
 
                             <div className="grid md:grid-cols-3 gap-8">
                                 <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                                    <img src="/project1.jpg" alt="Project 1" className="w-full h-40 object-cover" />
+                                    <img src="/images/burdines.png" alt="Project 1" className="w-full h-40 object-cover" />
                                     <div className="p-4 text-left">
-                                        <h3 className="text-lg font-semibold text-[#212a3e]">Project One</h3>
-                                        <p className="text-sm text-gray-600">Description...</p>
+                                        <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>
+                                        <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
                                     </div>
                                 </div>
 
@@ -104,21 +107,23 @@ export default function HomePage() {
                         <p className="text-lg mb-8 max-w-2xl mx-auto">
                             Interested in working together or have questions? Click the button below to get started.
                         </p>
-                        <button
-                        className="bg-white text-[#1e57be] hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-md transition duration-300"
-                        onClick={() => {}}
-                        >
-                        Contact Us
-                        </button>
+                        <Link to="/contact">
+                            <button className="bg-white text-[#1e57be] hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-md transition duration-300 cursor-pointer">
+                                Contact Us
+                            </button>
+                        </Link>
                     </section>
-
-                    {/* Footer */}
-                    <footer className="bg-[#f1f6f9] py-6 text-center text-sm text-[#212a3e]">
-                        <p>&copy; 2025 Sequitur LLC. All rights reserved.</p>
-                    </footer>
                 </div>
             </main>
+            {/* Footer */}
+            <footer className="bg-[#f1f6f9] py-6 text-center text-sm text-[#212a3e] bottom-0 left-0 w-full z-50">
+                <div className="flex justify-center">
+                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 w-auto" />
+                    <p className="pt-3.25 pl-5">&copy; 2025 Sequitur LLC. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
         </>
+        
     );
 }
