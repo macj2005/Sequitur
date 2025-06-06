@@ -32,9 +32,9 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className="min-h-screen w-screen text-gray-900 bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
+        <div className="min-h-screen w-full text-gray-900 bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
             {/* Navigation */}
-            <nav className="w-full flex justify-between items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
+            <nav className="w-full overflow-hidden max-w-screen flex justify-between items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
                 <div className="flex space-x-12">
                     <a href="#home" className="text-[#212a3e] hover:text-blue-600 font-medium">Home</a>
                     <a href="#about" className="text-[#212a3e] hover:text-blue-600 font-medium">About</a>
@@ -42,7 +42,7 @@ export default function HomePage() {
                     <a href="#contact" className="text-[#212a3e] hover:text-blue-600 font-medium">Contact Us</a>
                 </div>
                 <div className="text-blue-600">
-                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 w-auto" />
+                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
                 </div>
             </nav>
 
@@ -61,12 +61,12 @@ export default function HomePage() {
             </section>
 
             {/* About Section */}
-            <section id="about" className="px-6 py-20 max-w-4xl mx-auto text-center">
+            <section id="about" className="w-full px-6 py-20 text-center">
                 <h2 className="text-3xl font-bold mb-6 text-gray-100">About Us</h2>
-                <p className="text-lg leading-relaxed text-gray-200">
+                <p className="text-lg lg:px-50 leading-relaxed text-gray-200">
                     Located in the DFW area, we are a young freelance web developer duo that help businesses and creators grow a compelling online presence. We build modern, responsive, and optimized websites so your customers can reach you.
                 </p>
-                <p className="text-lg leading-relaxed text-gray-200 mt-4">
+                <p className="text-lg lg:px-50 leading-relaxed text-gray-200 mt-4">
                     Our goal is to provide a gateway for our clients to grow an online presence, even if they are not technologically inclined. Whether you are a well-established tech company, or a community-driven local restaurant, we will work hard to cater towards your individual online needs.
                 </p>
 
@@ -75,7 +75,7 @@ export default function HomePage() {
                         <img src="/images/mac.jpg" alt="Mac image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
                         <h3 className="text-xl font-semibold text-gray-200">Mac Johnson</h3>
                         <p className="text-sm text-gray-500">Co-Founder & Lead Developer</p>
-                        <p className="text-sm text-gray-200 mt-2">
+                        <p className="text-sm lg:px-50 text-gray-200 mt-2">
                             Studying Computer Science & Mathematics at Baylor University - uses his technical knowledge to build websites from the ground up, ensuring optimized code and an easy transition process for finished products.
                         </p>
                     </div>
@@ -83,7 +83,7 @@ export default function HomePage() {
                         <img src="/images/daniel.JPG" alt="Daniel image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
                         <h3 className="text-xl font-semibold text-gray-200">Wayne Six</h3>
                         <p className="text-sm text-gray-500">Co-Founder & Management Lead</p>
-                        <p className="text-sm text-gray-200 mt-2">
+                        <p className="text-sm lg:px-50 text-gray-200 mt-2">
                             Studying Finance & Sales at Baylor University - uses his management expertise to guarantee client satisfaction and clear communication between us and our clients.
                         </p>
                     </div>
@@ -91,15 +91,15 @@ export default function HomePage() {
             </section>
 
             {/* Portfolio Section */}
-            <section id="portfolio" className="px-6 py-20 bg-[#f1f6f9]">
-                <div className="max-w-5xl mx-auto text-center">
+            <section id="portfolio" className="px-6 py-20 lg:px-25 bg-[#f1f6f9]">
+                <div className="w-full text-center">
                     <h2 className="text-3xl font-bold mb-6 text-[#212a3e]">Our Work</h2>
                     <p className="text-lg text-gray-700 mb-12">
                         Here are some recent projects that reflect the quality of our work:
                     </p>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white shadow-md rounded-xl overflow-hidden">
+                        <div className="bg-white shadow-md rounded-xl overflow-hidden ">
                             <img src="/images/burdines.png" alt="Project 1" className="w-full h-40 object-cover" />
                             <div className="p-4 text-left">
                                 <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>

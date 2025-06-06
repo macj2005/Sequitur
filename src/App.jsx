@@ -4,8 +4,6 @@ import HomePage from "./HomePage";
 import Contact from "./Contact";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import ParticlesTestPage from './ParticlesTest';
-
 function App() {
   return (
     <Router>
