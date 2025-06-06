@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Contact() {
@@ -10,24 +10,19 @@ export default function Contact() {
         description: "",
     });
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
-
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const navigate = useNavigate();
 
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-
         const formData = new FormData();
-        formData.append("name", form.name);
-        formData.append("email", form.email);
-        formData.append("phone", form.phone);
-        formData.append("business", form.business);
-        formData.append("description", form.description);
+        Object.entries(form).forEach(([key, value]) => formData.append(key, value));
 
         try {
             const response = await fetch("https://script.google.com/macros/s/AKfycbyE0XWkWWV01XqCM1SOif6aIyuBWsOeyIJe7GbzUu8UaHc3PMyBPTp_JkcQGnFI7fpl/exec", {
@@ -36,18 +31,9 @@ export default function Contact() {
             });
 
             if (response.ok) {
-                setForm({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    business: "",
-                    description: "",
-                });
+                setForm({ name: "", email: "", phone: "", business: "", description: "" });
                 setShowSuccess(true);
-
-                setTimeout(() => {
-                    navigate("/");
-                }, 2000);
+                setTimeout(() => navigate("/"), 2500);
             } else {
                 alert("Submission failed. Please try again.");
             }
@@ -57,81 +43,100 @@ export default function Contact() {
         } finally {
             setLoading(false);
         }
-
     };
 
+    // Load particles.js
+    useEffect(() => {
+        const loadParticles = () => {
+            if (window.particlesJS) {
+                window.particlesJS("particles-js", {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#888888" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5 },
+                        size: { value: 3 },
+                        move: { enable: true, speed: 2 }
+                    },
+                    interactivity: {
+                        events: { onhover: { enable: true, mode: "repulse" } },
+                        modes: { repulse: { distance: 100 } }
+                    },
+                    retina_detect: true
+                });
+            } else {
+                setTimeout(loadParticles, 100);
+            }
+        };
+
+        const script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
+        script.onload = loadParticles;
+        document.body.appendChild(script);
+    }, []);
+
     return (
-        <>
-
-        {/* Animated BG */}
-        <div className="fixed top-0 left-0 h-full w-full bg-[url('/images/background.jpg')] bg-repeat scroll-bg-x z-0"></div>
-
         <div className="bg-[#f1f6f9] max-w-screen-xl mx-auto relative z-10">
-            {/* Hotbar */}
-            <nav className="w-full flex justify-between items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
-                <Link to="/">
-                    <button className="text-[#212a3e] hover:text-blue-600 font-medium cursor-pointer">Home</button>
-                </Link>
-                <div className="text-blue-600">
-                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 w-auto" />
+            {/* Navigation */}
+            <nav className="w-full flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
+                <div className="flex justify-center md:justify-start mb-4 md:mb-0">
+                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
                 </div>
+                <div className="flex flex-wrap justify-center md:justify-end space-x-6">
+                    <Link to="/#home">
+                        <button className="text-[#212a3e] hover:text-blue-600 font-medium">
+                            Home
+                        </button>
+                    </Link>
+                    <Link to="/#about">
+                        <button className="text-[#212a3e] hover:text-blue-600 font-medium">
+                            About
+                        </button>
+                    </Link>
+                    <Link to="/#portfolio">
+                        <button className="text-[#212a3e] hover:text-blue-600 font-medium">
+                            Portfolio
+                        </button>
+                    </Link>
+                    <Link to="/#contact">
+                        <button className="text-[#212a3e] hover:text-blue-600 font-medium">
+                            Contact Us
+                        </button>
+                    </Link>
+                </div>
+
             </nav>
 
-            { /* Header */}
-            <div className="justify-center py-20 text-white bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
-                <h2 className="text-5xl py-10 font-bold">Inquiry Form</h2>
-                <p className="text-lg px-20 sm:px-15">Please fill out this form and we will contact you as soon as possible. We will reach out to you to speak about your project idea, scope, timeline, and pricing.</p>
+            {/* Hero Header with Particles */}
+            <div className="relative h-[400px] pt-15 w-full overflow-hidden">
+                <div id="particles-js" className="absolute inset-0 z-0 bg-gradient-to-br from-[#1e57be] to-[#212A3E]"></div>
+                <div className="relative z-10 flex flex-col items-center justify-center text-white h-full text-center px-4">
+                    <h2 className="text-5xl font-bold mb-6">Inquiry Form</h2>
+                    <p className="text-lg max-w-3xl">
+                        Please fill out this form and we will contact you as soon as possible.
+                        We will reach out to you to speak about your project idea, scope, timeline, and pricing.
+                    </p>
+                </div>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-10 pt-10 justify-items-center">
-                <div className="px-4 sm:px-10">
-                    <label className="block mb-1 px-1">Full Name:</label>
-                    <input 
-                        type="text"
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
-                    />
-                </div>
-                <div className="px-4 sm:px-10">
-                    <label className="block mb-1 px-1">Email Address:</label>
-                    <input 
-                        type="email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
-                    />
-                </div>
-                <div className="px-4 sm:px-10">
-                    <label className="block mb-1 px-1">Phone Number:</label>
-                    <input 
-                        type="tel"
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
-                    />
-                </div>
-                <div className="px-4 sm:px-10">
-                    <label className="block mb-1 px-1">What type of business are you promoting?</label>
-                    <input 
-                        type="text"
-                        name="business"
-                        value={form.business}
-                        onChange={handleChange}
-                        required
-                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
-                    />
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-10 pt-10">
+                {["name", "email", "phone", "business"].map((field, index) => (
+                    <div className="px-4 sm:px-10" key={index}>
+                        <label className="block mb-1 px-1 capitalize">{field}:</label>
+                        <input
+                            type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
+                            name={field}
+                            value={form[field]}
+                            onChange={handleChange}
+                            required
+                            className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        />
+                    </div>
+                ))}
                 <div className="px-4 sm:px-10">
                     <label className="block mb-1 px-1">Please describe your project:</label>
-                    <textarea 
+                    <textarea
                         name="description"
                         value={form.description}
                         onChange={handleChange}
@@ -141,7 +146,7 @@ export default function Contact() {
                         placeholder="Describe what you need help with..."
                     />
                 </div>
-                <div className="py-10 bg-gradient-to-br from-[#1e57be] to-[#212A3E] w-full">
+                <div className="py-10 bg-gradient-to-br from-[#1e57be] to-[#212A3E] w-full text-center">
                     <button
                         type="submit"
                         disabled={loading}
@@ -161,7 +166,7 @@ export default function Contact() {
             </form>
 
             {/* Footer */}
-            <footer className="bg-[#f1f6f9] py-6 text-center text-sm text-[#212a3e] bottom-0 left-0 w-full z-50">
+            <footer className="bg-[#f1f6f9] py-6 text-center text-sm text-[#212a3e] w-full">
                 <div className="flex justify-center">
                     <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 w-auto" />
                     <p className="pt-3.25 pl-5">&copy; 2025 Sequitur LLC. All rights reserved.</p>
@@ -177,9 +182,6 @@ export default function Contact() {
                     </div>
                 </div>
             )}
-
         </div>
-        </>
-
     );
 }
