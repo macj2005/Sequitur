@@ -34,16 +34,17 @@ export default function HomePage() {
     return (
         <div className="min-h-screen w-full text-gray-900 bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
             {/* Navigation */}
-            <nav className="w-full overflow-hidden max-w-screen flex justify-between items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
-                <div className="flex space-x-12">
+            <nav className="w-full flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
+                <div className="flex justify-center md:justify-start mb-4 md:mb-0">
+                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
+                </div>
+                <div className="flex flex-wrap justify-center md:justify-end space-x-6">
                     <a href="#home" className="text-[#212a3e] hover:text-blue-600 font-medium">Home</a>
                     <a href="#about" className="text-[#212a3e] hover:text-blue-600 font-medium">About</a>
                     <a href="#portfolio" className="text-[#212a3e] hover:text-blue-600 font-medium">Portfolio</a>
                     <a href="#contact" className="text-[#212a3e] hover:text-blue-600 font-medium">Contact Us</a>
                 </div>
-                <div className="text-blue-600">
-                    <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
-                </div>
+
             </nav>
 
             {/* Hero Section */}
