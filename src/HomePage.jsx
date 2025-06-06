@@ -26,7 +26,7 @@ export default function HomePage() {
                     {/* Hero Section */}
                     <section id="home" className="flex flex-col items-center justify-center text-center px-4 py-40 bg-gradient-to-br from-[#1e57be] to-[#212A3E] text-white">
                         <h1 className="text-5xl md:text-6xl font-bold mb-4">Follow through with Sequitur</h1>
-                        <p className="text-xl md:text-2xl mb-8 max-w-2xl">Bringing you an online presence for an affordable price.</p>
+                        <p className="text-xl md:text-2xl mb-8 max-w-2xl">Building you an online presence for an affordable price.</p>
                         <Link to="/contact">
                             <button className="bg-white text-[#1e57be] hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-md transtiion duration-300 cursor-pointer">
                                 Contact Us
@@ -46,7 +46,7 @@ export default function HomePage() {
 
                         <div className="mt-12 grid md:grid-cols-2 gap-10">
                             <div className="text-center">
-                                <img src="" alt="Mac image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
+                                <img src="/images/mac.jpg" alt="Mac image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
                                 <h3 className="text-xl font-semibold text-[#212a3e]">Mac Johnson</h3>
                                 <p className="text-sm text-gray-500">Co-Founder & Lead Developer</p>
                                 <p className="text-sm text-gray-600 mt-2">
@@ -54,7 +54,7 @@ export default function HomePage() {
                                 </p>
                             </div>
                             <div className="text-center">
-                                <img src="" alt="Daniel image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
+                                <img src="/images/daniel.JPG" alt="Daniel image" className="mx-auto mb-4 w-40 h-40 object-cover rounded-full shadow-md" />
                                 <h3 className="text-xl font-semibold text-[#212a3e]">Wayne Six</h3>
                                 <p className="text-sm text-gray-500">Co-Founder & Management Lead</p>
                                 <p className="text-sm text-gray-600 mt-2">
@@ -79,22 +79,6 @@ export default function HomePage() {
                                     <div className="p-4 text-left">
                                         <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>
                                         <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                                    <img src="/project2.jpg" alt="Project 2" className="w-full h-40 object-cover" />
-                                    <div className="p-4 text-left">
-                                        <h3 className="text-lg font-semibold text-[#212a3e]">Project Two</h3>
-                                        <p className="text-sm text-gray-600">Description...</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                                    <img src="/project3.jpg" alt="Project 3" className="w-full h-40 object-cover" />
-                                    <div className="p-4 text-left">
-                                        <h3 className="text-lg font-semibold text-[#212a3e]">Project Three</h3>
-                                        <p className="text-sm text-gray-600">Description...</p>
                                     </div>
                                 </div>
                             </div>

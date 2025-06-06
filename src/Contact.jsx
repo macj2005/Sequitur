@@ -80,64 +80,65 @@ export default function Contact() {
             { /* Header */}
             <div className="justify-center py-20 text-white bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
                 <h2 className="text-5xl py-10 font-bold">Inquiry Form</h2>
-                <p className="text-lg px-20">Please fill out this form and we will contact you as soon as possible. We will reach out to you to speak about your project idea, scope, timeline, and pricing.</p>
+                <p className="text-lg px-20 sm:px-15">Please fill out this form and we will contact you as soon as possible. We will reach out to you to speak about your project idea, scope, timeline, and pricing.</p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-10 pt-10 justify-items-start">
-                <div className="px-10">
-                    <label className="px-4">Full Name:</label>
+            <form onSubmit={handleSubmit} className="space-y-10 pt-10 justify-items-center">
+                <div className="px-4 sm:px-10">
+                    <label className="block mb-1 px-1">Full Name:</label>
                     <input 
                         type="text"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
                         required
-                        className="mt-1 w-lg p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
                     />
                 </div>
-                <div className="px-10">
-                    <label className="px-4">Email Address:</label>
+                <div className="px-4 sm:px-10">
+                    <label className="block mb-1 px-1">Email Address:</label>
                     <input 
                         type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
                         required
-                        className="mt-1 w-lg p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
                     />
                 </div>
-                <div className="px-10">
-                    <label className="px-4">Phone Number:</label>
+                <div className="px-4 sm:px-10">
+                    <label className="block mb-1 px-1">Phone Number:</label>
                     <input 
                         type="tel"
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
                         required
-                        className="mt-1 w-lg p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
                     />
                 </div>
-                <div className="px-10">
-                    <label className="px-4">What type of business are you promoting?</label>
+                <div className="px-4 sm:px-10">
+                    <label className="block mb-1 px-1">What type of business are you promoting?</label>
                     <input 
                         type="text"
                         name="business"
                         value={form.business}
                         onChange={handleChange}
                         required
-                        className="mt-1 w-lg p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        className="w-full max-w-md p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
                     />
                 </div>
-                <div className="px-10">
-                    <label className="px-4">Please describe your project:</label>
-                    <input 
-                        type="text"
+                <div className="px-4 sm:px-10">
+                    <label className="block mb-1 px-1">Please describe your project:</label>
+                    <textarea 
                         name="description"
                         value={form.description}
                         onChange={handleChange}
                         required
-                        className="mt-1 w-lg p-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500"
+                        rows={6}
+                        className="w-full max-w-md p-3 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-gray-800 placeholder-gray-500 resize-none"
+                        placeholder="Describe what you need help with..."
                     />
                 </div>
                 <div className="py-10 bg-gradient-to-br from-[#1e57be] to-[#212A3E] w-full">
