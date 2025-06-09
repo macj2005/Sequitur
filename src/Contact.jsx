@@ -83,22 +83,22 @@ export default function Contact() {
                     <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
                 </div>
                 <div className="flex flex-wrap justify-center md:justify-end space-x-6">
-                    <Link to="/#home">
+                    <Link to="/" state={{ scrollTo: "home" }}>
                         <button className="text-[#212a3e] hover:text-blue-600 font-medium">
                             Home
                         </button>
                     </Link>
-                    <Link to="/#about">
+                    <Link to="/" state={{ scrollTo: "about" }}>
                         <button className="text-[#212a3e] hover:text-blue-600 font-medium">
                             About
                         </button>
                     </Link>
-                    <Link to="/#portfolio">
+                    <Link to="/" state={{ scrollTo: "portfolio" }}>
                         <button className="text-[#212a3e] hover:text-blue-600 font-medium">
                             Portfolio
                         </button>
                     </Link>
-                    <Link to="/#contact">
+                    <Link to="/" state={{ scrollTo: "contact" }}>
                         <button className="text-[#212a3e] hover:text-blue-600 font-medium">
                             Contact Us
                         </button>

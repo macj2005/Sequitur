@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function HomePage() {
     useEffect(() => {
@@ -31,10 +31,22 @@ export default function HomePage() {
         document.body.appendChild(script);
     }, []);
 
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            const section = document.getElementById(location.state.scrollTo);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+                window.history.replaceState({}, document.title);
+            }
+        }
+    }, [location]);
+
     return (
         <div className="min-h-screen w-full text-gray-900 bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
             {/* Navigation */}
-            <nav className="w-full flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50">
+            <nav className="w-full flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50 scroll-smooth">
                 <div className="flex justify-center md:justify-start mb-4 md:mb-0">
                     <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
                 </div>
@@ -85,7 +97,7 @@ export default function HomePage() {
                         <h3 className="text-xl font-semibold text-gray-200">Wayne Six</h3>
                         <p className="text-sm text-gray-500">Co-Founder & Management Lead</p>
                         <p className="text-sm lg:px-50 text-gray-200 mt-2">
-                            Studying Finance & Sales at Baylor University - uses his management expertise to guarantee client satisfaction and clear communication between us and our clients.
+                            Studying Finance & Sales at Baylor University - uses his management expertise to guarantee client satisfaction and seamless customer experience.
                         </p>
                     </div>
                 </div>
