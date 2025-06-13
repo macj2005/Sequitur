@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function HomePage() {
+    const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+
     useEffect(() => {
         const loadParticles = () => {
             if (window.particlesJS) {
@@ -31,7 +34,14 @@ export default function HomePage() {
         document.body.appendChild(script);
     }, []);
 
-    const location = useLocation();
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         if (location.state?.scrollTo) {
@@ -46,17 +56,24 @@ export default function HomePage() {
     return (
         <div className="min-h-screen w-full text-gray-900 bg-gradient-to-br from-[#1e57be] to-[#212A3E]">
             {/* Navigation */}
-            <nav className="w-full flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md fixed top-0 left-0 z-50 scroll-smooth">
+            <nav className={`${
+                    scrolled
+                        ? "w-full left-0 rounded-none top-0" 
+                        : "w-3/4 left-1/8 rounded-2xl top-4"
+                    } transition-all duration-300 fixed z-50 flex flex-col md:flex-row md:justify-between md:items-center px-6 py-4 bg-gray-100 shadow-md`}>
                 <div className="flex justify-center md:justify-start mb-4 md:mb-0">
                     <img src="/images/logo-short.JPG" alt="Sequitur Logo" className="h-12 max-w-[300px] w-auto overflow-hidden" />
                 </div>
                 <div className="flex flex-wrap justify-center md:justify-end space-x-6">
-                    <a href="#home" className="text-[#212a3e] hover:text-blue-600 font-medium">Home</a>
-                    <a href="#about" className="text-[#212a3e] hover:text-blue-600 font-medium">About</a>
-                    <a href="#portfolio" className="text-[#212a3e] hover:text-blue-600 font-medium">Portfolio</a>
-                    <a href="#contact" className="text-[#212a3e] hover:text-blue-600 font-medium">Contact Us</a>
+                    <a href="#home" className="relative text-[#212a3e] hover:text-blue-600 font-medium cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                    <a href="#about" className="relative text-[#212a3e] hover:text-blue-600 font-medium cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300">About</a>
+                    <a href="#portfolio" className="relative text-[#212a3e] hover:text-blue-600 font-medium cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300">Portfolio</a>
+                    <Link to="/contact">
+                        <button className="relative text-[#212a3e] hover:text-blue-600 font-medium cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300">
+                            Contact Us
+                        </button>
+                    </Link>
                 </div>
-
             </nav>
 
             {/* Hero Section */}
