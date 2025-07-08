@@ -82,11 +82,11 @@ export default function HomePage() {
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 text-gray-100 bg-transparent">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4">Follow through with Sequitur</h1>
                     <p className="text-xl md:text-2xl mb-8 max-w-2xl">Building you an online presence for an affordable price.</p>
-                    <Link to="/contact">
+                    <a href="/contact">
                         <button className="bg-[#212a3e] text-white hover:bg-[#1e57be] font-semibold py-3 px-6 rounded-2xl shadow-md transition duration-300 cursor-pointer">
                             Contact Us
                         </button>
-                    </Link>
+                    </a>
                 </div>
             </section>
 
@@ -127,16 +127,20 @@ export default function HomePage() {
                     <p className="text-lg text-gray-700 mb-12">
                         Here are some recent projects that reflect the quality of our work:
                     </p>
-
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white shadow-md rounded-xl overflow-hidden ">
-                            <img src="/images/burdines.png" alt="Project 1" className="w-full h-40 object-cover" />
-                            <div className="p-4 text-left">
-                                <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>
-                                <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
+                        <a href="https://burdineswaterfront.com/">
+                        
+                            <div className="bg-white shadow-md rounded-xl overflow-hidden ">
+                                <img src="/images/burdines.png" alt="Project 1" className="w-full h-40 object-cover" />
+                                <div className="p-4 text-left">
+                                    <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>
+                                    <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
+                                </div>
                             </div>
-                        </div>
+
+                        </a>
                     </div>
+
                 </div>
             </section>
 
