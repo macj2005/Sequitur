@@ -82,11 +82,11 @@ export default function HomePage() {
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 text-gray-100 bg-transparent">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4">Follow through with Sequitur</h1>
                     <p className="text-xl md:text-2xl mb-8 max-w-2xl">Building you an online presence for an affordable price.</p>
-                    <a href="/contact">
+                    <Link to="/contact">
                         <button className="bg-[#212a3e] text-white hover:bg-[#1e57be] font-semibold py-3 px-6 rounded-2xl shadow-md transition duration-300 cursor-pointer">
                             Contact Us
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </section>
 
@@ -137,7 +137,7 @@ export default function HomePage() {
                                     <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
                                 </div>
                             </div>
-
+                            
                         </a>
                     </div>
 
