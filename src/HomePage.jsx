@@ -130,11 +130,22 @@ export default function HomePage() {
                     <div className="grid md:grid-cols-3 gap-8">
                         <a href="https://burdineswaterfront.com/">
                         
-                            <div className="bg-white shadow-md rounded-xl overflow-hidden ">
+                            <div className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-110 transition">
                                 <img src="/images/burdines.png" alt="Project 1" className="w-full h-40 object-cover" />
                                 <div className="p-4 text-left">
                                     <h3 className="text-lg font-semibold text-[#212a3e]">Burdine's Waterfront</h3>
                                     <p className="text-sm text-gray-600">A responsive website for a beloved family-owned restaurant - highlighting marina services and menu items using our responsive menu display system.</p>
+                                </div>
+                            </div>
+                            
+                        </a>
+                        <a href="https://blockchainvisual.netlify.app/">
+                        
+                            <div className="bg-white shadow-md rounded-xl overflow-hidden hover:scale-110 transition">
+                                <img src="/images/blockchain.png" alt="Project 2" className="w-full h-40 object-cover" />
+                                <div className="p-4 text-left">
+                                    <h3 className="text-lg font-semibold text-[#212a3e]">BLockchain Visualization</h3>
+                                    <p className="text-sm text-gray-600">An informative, online visualization of what a blockchain is and what it does. Includes a built-in transaction system, proof-of-work validation, and simulated token rewards.</p>
                                 </div>
                             </div>
                             
